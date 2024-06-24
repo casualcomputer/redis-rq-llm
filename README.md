@@ -1,4 +1,3 @@
-
 # FastAPI LLM Server with Redis-RQ Task Queue
 
 ## Overview
@@ -28,12 +27,14 @@ With the primary components tested and verified individually, the focus shifts t
 ### Error Investigation and Monitoring
 
 To address potential errors during integration:
+
 - **Logs Review**: Regularly check server and worker logs for error messages or unusual activity.
 - **Resource Monitoring**: Keep an eye on GPU and other system resources to identify potential bottlenecks or failures.
 
 ## Goal and Testing
 
 The immediate goal is to deploy `app.py` and `worker.py` in a test environment to evaluate the full system's functionality. This includes:
+
 - Testing how the system handles multiple simultaneous requests.
 - Monitoring resource usage to ensure there are no overflows or crashes.
 
@@ -48,11 +49,13 @@ Upon successful integration and robust testing, plans include scaling the system
 Ensure that the Redis server is operational before starting the application:
 
 1. **Start the FastAPI Server (`app.py`):**
+
    ```bash
-   python app.py
+   uvicorn app:app --reload --host 0.0.0.0 --port 8000 #fastapi_app:app
    ```
 
 2. **Run the Redis-RQ Worker (`worker.py`):**
+
    ```bash
    python worker.py
    ```
